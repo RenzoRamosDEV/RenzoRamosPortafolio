@@ -1,0 +1,38 @@
+export const translations = {
+  es: {
+    heroLabel: "// Desarrollador Full Stack",
+    heroName: "Hola, soy<br/>Renzo Ramos",
+    heroRole: "// Construyo ideas en código",
+    heroBio: "Desarrollador apasionado por crear experiencias web que combinan diseño cuidado con ingeniería sólida. Me especializo en transformar problemas complejos en soluciones elegantes y escalables.",
+    ctaProjects: "Ver proyectos",
+    ctaStack: "Mi stack",
+    stackLabel: "// Conocimientos",
+    stackTitle: "Mi Stack Técnico",
+    projLabel: "// Proyectos",
+    projTitle: "Lo que he construido",
+    navAbout: "Sobre mí",
+    navStack: "Stack",
+    navProjects: "Proyectos",
+    darkLabel: "Oscuro",
+    lightLabel: "Claro",
+    footerCopy: "© 2026 · Hecho con café y algunos git commits :)"
+  },
+  en: {
+    heroLabel: "// Full Stack Developer",
+    heroName: "Hi, I'm<br/>Renzo Ramos",
+    heroRole: "// Building ideas into code",
+    heroBio: "Developer passionate about crafting web experiences that blend thoughtful design with solid engineering. I specialize in turning complex problems into elegant, scalable solutions.",
+    ctaProjects: "View projects",
+    ctaStack: "My stack",
+    stackLabel: "// Skills",
+    stackTitle: "My Tech Stack",
+    projLabel: "// Projects",
+    projTitle: "What I've built",
+    navAbout: "About me",
+    navStack: "Stack",
+    navProjects: "Projects",
+    darkLabel: "Dark",
+    lightLabel: "Light",
+    footerCopy: "© 2026 · Built with coffee and some git commits :)"
+  }
+};

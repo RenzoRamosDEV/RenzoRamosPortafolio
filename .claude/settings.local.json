@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8000)",
+      "Bash(node -c /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/utils/mobile-menu.js)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git commit -m 'Initial commit: Portfolio responsive con menú hamburguesa y dropdown para controles *)"
+    ]
+  }
+}
