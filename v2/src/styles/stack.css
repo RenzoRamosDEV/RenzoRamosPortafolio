@@ -15,6 +15,14 @@
   gap: 12px;
 }
 
+.section-tag--right {
+  justify-content: flex-end;
+}
+
+.section-tag--right::before {
+  order: 1;
+}
+
 .section-tag::before {
   content: '';
   display: block;
@@ -32,6 +40,10 @@
   letter-spacing: -0.03em;
   margin-bottom: 60px;
   color: #fff;
+}
+
+.section-title--right {
+  text-align: right;
 }
 
 .section-divider {
@@ -163,6 +175,10 @@
   flex-shrink: 0;
   opacity: 0.7;
   white-space: nowrap;
+}
+
+.stack-layout--rev .stack-row-label {
+  text-align: right;
 }
 
 .stack-row-chips {

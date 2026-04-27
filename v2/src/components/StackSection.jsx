@@ -138,10 +138,10 @@ export function StackSection({ scheme }) {
       </div>
 
       {/* ── Metodologías ── */}
-      <div className="section-tag" style={{ color: s.b, marginTop: 72 }}>
+      <div className="section-tag section-tag--right" style={{ color: s.b, marginTop: 72 }}>
         Forma de trabajar
       </div>
-      <h2 className="section-title" style={{ marginBottom: 48 }}>
+      <h2 className="section-title section-title--right" style={{ marginBottom: 48 }}>
         Metodologías que
         <br />
         aplico
