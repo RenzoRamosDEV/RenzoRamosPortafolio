@@ -2,16 +2,14 @@ image: node:18
 
 cache:
   paths:
-    - v2/node_modules/
+    - node_modules/
 
 pages:
   stage: deploy
   script:
-    - cd v2
     - npm install
     - npm run build
-    - cd ..
-    - mv v2/dist public
+    - mv dist public
   artifacts:
     paths:
       - public
