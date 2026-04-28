@@ -56,13 +56,6 @@ git pushall
 git push origin main && git push github main
 ```
 
-## 🎨 Características
-
-- ✨ Animaciones con canvas (starfield y cursor trail)
-- 🎨 Esquemas de color personalizables
-- 📱 Diseño totalmente responsive
-- ⚡ Optimizado para performance
-
 ## 📄 Licencia
 
 Este proyecto es de código abierto y está disponible bajo la licencia MIT.
@@ -70,9 +63,6 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 ## 👤 Autor
 
 **Renzo Ramos**
-- GitHub: [@RenzoRamosDEV](https://github.com/RenzoRamosDEV)
-- GitLab: [@mini-projects7212415](https://gitlab.com/mini-projects7212415)
-
 ---
 
 ⭐ Si te gusta este proyecto, dale una estrella en GitHub!
