@@ -7,8 +7,9 @@ cache:
 pages:
   stage: deploy
   script:
-    - npm install
+    - npm ci --legacy-peer-deps
     - npm run build
+    - rm -rf public
     - mv dist public
   artifacts:
     paths:
