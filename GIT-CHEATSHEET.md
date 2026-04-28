@@ -50,12 +50,6 @@ git pushall
 
 ---
 
-## 🌐 URL de deploy
-
-- **GitHub Pages**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
-
----
-
 ## 📝 Tipos de commit
 
 ```

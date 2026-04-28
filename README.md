@@ -2,22 +2,16 @@
 
 Portfolio personal desarrollado con React y Vite.
 
-🌐 **Demo en vivo**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
-
 ## 🚀 Tecnologías
 
 - **React 18** - Biblioteca de UI
 - **Vite 5** - Build tool y dev server
 - **CSS Vanilla** - Estilos sin frameworks
-- **GitHub Actions** - CI/CD automático
 
 ## 📁 Estructura del proyecto
 
 ```
 portafolio/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Actions para deploy automático
 ├── public/                 # Assets estáticos
 │   ├── icons/             # Iconos de tecnologías
 │   └── certificates/      # Certificados y previews
@@ -69,20 +63,6 @@ npm run build    # Build para producción
 npm run preview  # Preview del build de producción
 ```
 
-## 🚢 Despliegue
-
-El proyecto se despliega automáticamente en **GitHub Pages** cada vez que se hace push a la rama `main`.
-
-- **Workflow**: `.github/workflows/deploy.yml`
-- **URL**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
-
-### Configurar GitHub Pages (primera vez)
-
-1. Ve a: **Settings** → **Pages**
-2. En **Build and deployment**:
-   - **Source**: GitHub Actions
-3. ¡Listo! Los despliegues serán automáticos
-
 ## 🔄 Repositorios
 
 Este proyecto está sincronizado en dos repositorios:
@@ -111,7 +91,6 @@ git push origin main && git push github main
 - 🎨 Esquemas de color personalizables
 - 📱 Diseño totalmente responsive
 - ⚡ Optimizado para performance
-- 🚀 Deploy automático con GitHub Actions
 
 ## 📄 Licencia
 

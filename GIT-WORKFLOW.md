@@ -1,12 +1,8 @@
 # 📚 Guía: Trabajar con GitLab y GitHub Simultáneamente
 
 Este proyecto está configurado para sincronizarse automáticamente en **dos** repositorios remotos:
-- 🦊 **GitLab**: https://gitlab.com/mini-projects7212415/portafolio (solo código fuente)
+- 🦊 **GitLab**: https://gitlab.com/mini-projects7212415/portafolio
 - 🐙 **GitHub**: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio
-
-## 🌐 URL del sitio desplegado
-
-- **GitHub Pages**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
 
 ---
 
@@ -252,43 +248,10 @@ git push github main --force-with-lease
 
 ---
 
-## 📦 Deployment automático
-
-### GitHub Pages
-- Se despliega automáticamente con cada push a `main`
-- Workflow definido en `.github/workflows/deploy.yml`
-- URL: https://renzoramosdev.github.io/RenzoRamosPortafolio/
-
-**IMPORTANTE:** Para activar GitHub Pages:
-1. Ir a: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio/settings/pages
-2. En "Build and deployment" → "Source" → Seleccionar **"GitHub Actions"**
-3. Esperar 2-3 minutos después del push para que se despliegue
-
----
-
-## 📌 Resumen rápido
-
-```bash
-# Workflow diario:
-git status                           # Ver cambios
-git add .                           # Agregar archivos
-git commit -m "tipo: descripción"   # Commit
-git push origin main                # Push a GitLab
-git push github main                # Push a GitHub
-
-# O en una línea:
-git push origin main && git push github main
-```
-
----
-
 ## 🆘 Ayuda adicional
 
 - **Git docs**: https://git-scm.com/doc
-- **GitLab CI/CD**: https://docs.gitlab.com/ee/ci/
-- **GitHub Actions**: https://docs.github.com/en/actions
 
 ---
 
-**¿Preguntas?** Consulta la documentación oficial o revisa los logs del deployment en:
-- GitHub Actions: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio/actions
+**¿Preguntas?** Consulta la documentación oficial de Git.
