@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
 
-  base: '/portafolio-69a3ed/',
+  base: '/portafolio',
 
   build: {
     outDir: 'dist',
