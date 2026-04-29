@@ -59,6 +59,10 @@
   gap: 20px;
 }
 
+.stack-layout--rev {
+  flex-direction: row-reverse;
+}
+
 .stack-layout--rev .stack-compact-list {
   align-items: stretch;
 }
