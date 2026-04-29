@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { SCHEMES } from '../constants/schemes';
+import { PdfViewerModal } from './PdfViewerModal';
 
-// Panel de detalle derecho — muestra toda la información del item seleccionado
 export function ExpCardDetail({ data, scheme }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
-  const [showPdfModal, setShowPdfModal] = useState(false);
+  const [pdfOpen, setPdfOpen] = useState(false);
 
   return (
     <>
       <div className="exp-card-detail">
-        {/* Barra de acento con el color del esquema */}
         <div
           className="exp-detail-accent"
           style={{ background: `linear-gradient(to bottom, ${s.a}, ${s.b})` }}
@@ -32,13 +31,12 @@ export function ExpCardDetail({ data, scheme }) {
           <p className="exp-detail-desc">{data.desc}</p>
         )}
 
-        {/* Preview del PDF si existe */}
         {data.pdf && data.preview && (
           <div className="exp-detail-pdf-section">
             <h4 className="exp-detail-pdf-title">Vista previa del certificado</h4>
-            <div 
+            <div
               className="exp-detail-pdf-preview"
-              onClick={() => setShowPdfModal(true)}
+              onClick={() => setPdfOpen(true)}
               style={{ cursor: 'pointer' }}
             >
               <img
@@ -47,31 +45,21 @@ export function ExpCardDetail({ data, scheme }) {
                 className="exp-detail-pdf-preview-img"
               />
               <div className="exp-detail-pdf-overlay">
-                <span>Click para ampliar</span>
+                <span>Click para ver</span>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Modal para ver el PDF completo */}
-      {showPdfModal && data.pdf && (
-        <div className="pdf-modal-overlay" onClick={() => setShowPdfModal(false)}>
-          <div className="pdf-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="pdf-modal-close"
-              onClick={() => setShowPdfModal(false)}
-              style={{ color: s.a }}
-            >
-              ✕
-            </button>
-            <iframe
-              src={data.pdf}
-              className="pdf-modal-iframe"
-              title="PDF Viewer"
-            />
-          </div>
-        </div>
+      {data.pdf && (
+        <PdfViewerModal
+          pdf={data.pdf}
+          title={data.title}
+          isOpen={pdfOpen}
+          onClose={() => setPdfOpen(false)}
+          scheme={scheme}
+        />
       )}
     </>
   );

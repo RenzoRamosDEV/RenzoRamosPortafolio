@@ -176,23 +176,6 @@ body.light-theme .exp-detail-pdf-preview:hover {
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-body.light-theme .pdf-modal-overlay {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-body.light-theme .pdf-modal-content {
-  background: #ffffff;
-}
-
-body.light-theme .pdf-modal-close {
-  background: rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme .pdf-modal-close:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
 body.light-theme .project-tag {
   background: rgba(0, 0, 0, 0.05);
   border-color: rgba(0, 0, 0, 0.1);
