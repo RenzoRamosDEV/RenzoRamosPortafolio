@@ -247,6 +247,7 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .modal-link {
@@ -266,6 +267,21 @@
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.2s;
   white-space: nowrap;
+}
+
+.modal-link-repo {
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+}
+
+/* Fuerza el ícono a la derecha específicamente */
+.modal-links a.modal-link-repo {
+  flex-direction: row-reverse !important;
+}
+
+.modal-links a.modal-link-repo svg {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
 }
 
 .modal-link:hover {
