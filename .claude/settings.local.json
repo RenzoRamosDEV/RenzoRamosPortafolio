@@ -22,7 +22,7 @@
       "Bash(python3 /tmp/check_layout.py)",
       "Bash(npm list *)",
       "Bash(curl -s http://localhost:5174)",
-      "Read(//home/renzo-renzo-ramos/Workspace/Renzo/portafololio-renzo/v2/src/data/**)"
+      "Read(//home/renzo-renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/data/**)"
     ],
     "additionalDirectories": [
       "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/.claude",
