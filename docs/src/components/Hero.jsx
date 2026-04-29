@@ -37,8 +37,9 @@ export function Hero({ scheme, onScrollTo }) {
       </div>
 
       <p className="hero-desc fade-up fade-up-3">
-        Enfoque en Backend (Java/Spring Boot), especializado en la construcción de servicios escalables y mantenibles. Trabajo principalmente en la lógica de negocio y APIs, aplicando buenas prácticas y arquitectura limpia.<br></br>
-        También cuento con experiencia en frontend y diseño gráfico, lo que me permite tener una visión completa del producto y facilitar la integración entre backend y UI/UX, logrando soluciones coherentes y eficientes.
+        Desarrollador backend especializado en Java y Spring Boot, enfocado en la creación de APIs robustas, escalables y mantenibles. Aplico principios de arquitectura limpia, buenas prácticas y diseño orientado al dominio para construir sistemas sólidos centrados en la lógica de negocio.
+        <br></br>
+        Cuento además con experiencia en frontend y diseño gráfico, lo que me permite entender el producto de forma integral y facilitar la integración entre backend y UI/UX. Esto se traduce en soluciones más coherentes, eficientes y alineadas con la experiencia de usuario final.
       </p>
 
       <div className="hero-actions fade-up fade-up-4">
