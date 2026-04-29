@@ -86,7 +86,7 @@ export function StackSection({ scheme }) {
 
   const methodGroups = [
     { label: 'Arquitectura', items: METHOD_ARCH,    color: `${s.a}99` },
-    { label: 'Desarrollo',   items: METHOD_AI,      color: s.b },
+    { label: 'IA',           items: METHOD_AI,      color: s.b },
     { label: 'Testing',      items: METHOD_TESTING, color: `${s.b}99` },
     { label: 'Proceso',      items: METHOD_PROCESS, color: s.a },
     { label: 'UI',           items: METHOD_UI,      color: `${s.a}99` },
