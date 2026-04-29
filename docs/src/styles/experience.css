@@ -306,7 +306,65 @@
   opacity: 1;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 721px) and (max-width: 1024px) {
+  /* Tablet: 3 cards horizontales que ocupen todo el ancho */
+  .exp-layout--tablet {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: auto;
+  }
+
+  /* Lista: fila horizontal con 3 cards */
+  .exp-layout--tablet .exp-list-container {
+    gap: 0;
+  }
+
+  .exp-layout--tablet .exp-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow: hidden;
+    height: auto;
+  }
+
+  .exp-layout--tablet .exp-card-small {
+    flex: 1;
+    min-width: 0;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  /* Flechas ◀▶: fila centrada debajo de las cards */
+  .exp-layout--tablet .exp-scroll-controls {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
+    padding: 12px 0;
+    order: 0;
+  }
+
+  /* Detalle: ancho completo, altura auto */
+  .exp-layout--tablet .exp-detail {
+    width: 100%;
+    height: auto;
+    margin-top: 4px;
+  }
+
+  .exp-layout--tablet .exp-detail .exp-card-detail {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .exp-layout--tablet .exp-detail-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 720px) {
   /* Tabs: cada botón ocupa el mismo ancho */
   .exp-tabs-container {
     gap: 8px;
@@ -322,7 +380,7 @@
   }
 
   /* Layout: columna única */
-  .exp-layout {
+  .exp-layout--mobile {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -330,18 +388,18 @@
   }
 
   /* Lista: fila horizontal con 2 cards */
-  .exp-list-container {
+  .exp-layout--mobile .exp-list-container {
     gap: 0;
   }
 
-  .exp-list {
+  .exp-layout--mobile .exp-list {
     flex-direction: row;
     gap: 10px;
     overflow: hidden;
     height: auto;
   }
 
-  .exp-card-small {
+  .exp-layout--mobile .exp-card-small {
     flex: 1;
     min-width: 0;
     min-height: auto;
@@ -349,7 +407,7 @@
   }
 
   /* Flechas ◀▶: fila centrada debajo de las cards */
-  .exp-scroll-controls {
+  .exp-layout--mobile .exp-scroll-controls {
     flex-direction: row;
     gap: 12px;
     justify-content: center;
@@ -360,35 +418,35 @@
   }
 
   /* Detalle: ancho completo, altura auto */
-  .exp-detail {
+  .exp-layout--mobile .exp-detail {
     height: auto;
     margin-top: 4px;
   }
 
-  .exp-detail .exp-card-detail {
+  .exp-layout--mobile .exp-detail .exp-card-detail {
     height: auto;
     overflow-y: visible;
   }
 
-  .exp-card-detail {
+  .exp-layout--mobile .exp-card-detail {
     padding: 18px 16px;
   }
 
-  .exp-detail-title {
+  .exp-layout--mobile .exp-detail-title {
     font-size: 18px;
   }
 
-  .exp-detail-header {
+  .exp-layout--mobile .exp-detail-header {
     gap: 12px;
     margin-bottom: 14px;
   }
 
-  .exp-detail-meta {
+  .exp-layout--mobile .exp-detail-meta {
     gap: 10px;
     margin-bottom: 14px;
   }
 
-  .exp-detail-desc {
+  .exp-layout--mobile .exp-detail-desc {
     font-size: 13px;
   }
 }

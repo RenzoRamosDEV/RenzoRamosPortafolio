@@ -7,6 +7,7 @@ import { ExpCardSmall } from './ExpCardSmall';
 import { ExpCardDetail } from './ExpCardDetail';
 
 const VISIBLE_DESKTOP = 3;
+const VISIBLE_TABLET  = 3;
 const VISIBLE_MOBILE  = 2;
 
 const TABS = [
@@ -21,15 +22,27 @@ export function ExperienceSection({ scheme }) {
   const [activeTab, setActiveTab]       = useState('experiencia');
   const [selectedCard, setSelectedCard] = useState(0);
   const [scrollIndex, setScrollIndex]   = useState(0);
-  const [isMobile, setIsMobile]         = useState(() => window.innerWidth <= 1024);
+  const [screenSize, setScreenSize] = useState(() => {
+    const width = window.innerWidth;
+    if (width <= 720) return 'mobile';
+    if (width <= 1024) return 'tablet';
+    return 'desktop';
+  });
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 1024);
+    const check = () => {
+      const width = window.innerWidth;
+      if (width <= 720) setScreenSize('mobile');
+      else if (width <= 1024) setScreenSize('tablet');
+      else setScreenSize('desktop');
+    };
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  const visibleCount  = isMobile ? VISIBLE_MOBILE : VISIBLE_DESKTOP;
+  const visibleCount = screenSize === 'mobile' ? VISIBLE_MOBILE 
+    : screenSize === 'tablet' ? VISIBLE_TABLET 
+    : VISIBLE_DESKTOP;
   const currentItems  = TABS.find(t => t.id === activeTab)?.items ?? [];
   const canScrollUp   = scrollIndex > 0;
   const canScrollDown = scrollIndex < currentItems.length - visibleCount;
@@ -60,7 +73,7 @@ export function ExperienceSection({ scheme }) {
         ))}
       </div>
 
-      <div className="exp-layout">
+      <div className={`exp-layout exp-layout--${screenSize}`}>
 
         <div className="exp-list-container">
           <div className="exp-list">
@@ -84,7 +97,7 @@ export function ExperienceSection({ scheme }) {
             style={{ color: canScrollUp ? s.a : 'rgba(255,255,255,0.2)' }}
             title="Anterior"
           >
-            {isMobile ? '◀' : '▲'}
+            {screenSize === 'mobile' || screenSize === 'tablet' ? '◀' : '▲'}
           </button>
           <button
             className="exp-scroll-btn"
@@ -93,7 +106,7 @@ export function ExperienceSection({ scheme }) {
             style={{ color: canScrollDown ? s.a : 'rgba(255,255,255,0.2)' }}
             title="Siguiente"
           >
-            {isMobile ? '▶' : '▼'}
+            {screenSize === 'mobile' || screenSize === 'tablet' ? '▶' : '▼'}
           </button>
         </div>
 
