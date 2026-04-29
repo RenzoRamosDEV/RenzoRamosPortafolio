@@ -49,6 +49,13 @@ export function ExperienceSection({ scheme }) {
   const canScrollUp   = scrollIndex > 0;
   const canScrollDown = scrollIndex < currentItems.length - visibleCount;
 
+  useEffect(() => {
+    const maxScroll = Math.max(0, currentItems.length - visibleCount);
+    if (scrollIndex > maxScroll) {
+      setScrollIndex(maxScroll);
+    }
+  }, [scrollIndex, currentItems.length, visibleCount]);
+
   function handleTabChange(tabId) {
     setActiveTab(tabId);
     setSelectedCard(0);
