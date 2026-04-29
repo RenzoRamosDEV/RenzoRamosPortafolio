@@ -198,3 +198,44 @@
   color: rgba(255, 255, 255, 0.18);
   text-transform: uppercase;
 }
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 90px 24px 80px;
+    justify-content: center;
+  }
+
+  .hero-name {
+    font-size: clamp(52px, 18vw, 90px);
+    margin-bottom: 24px;
+  }
+
+  .hero-pill {
+    margin-bottom: 24px;
+    max-width: 90vw;
+    text-align: center;
+  }
+
+  .hero-pill-text {
+    font-size: 9px;
+    letter-spacing: 0.07em;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .btn-secondary {
+    padding: 12px 22px;
+    font-size: 13px;
+  }
+}
