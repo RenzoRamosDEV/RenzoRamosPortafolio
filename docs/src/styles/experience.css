@@ -775,6 +775,147 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* ── Experience / Education Grid Cards ───────────────── */
+.exp-grid-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.exp-grid-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.exp-grid-card-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.exp-grid-card-initial {
+  font-family: 'Outfit', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.5;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.exp-grid-card:hover .exp-grid-card-initial {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.exp-grid-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s;
+}
+
+.exp-grid-card:hover .exp-grid-card-img {
+  transform: scale(1.04);
+}
+
+.exp-grid-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 14px 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.exp-grid-card-overlay span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exp-grid-card:hover .exp-grid-card-overlay {
+  opacity: 1;
+}
+
+.exp-grid-card-info {
+  padding: 16px 18px 18px;
+}
+
+.exp-grid-card-company {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px 0;
+}
+
+.exp-grid-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+}
+
+.exp-grid-card-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* ── Experience Modal ────────────────────────────────── */
+.exp-modal {
+  max-width: 720px;
+}
+
+.exp-modal-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 380px;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.exp-modal-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+
+.exp-modal-initial {
+  font-family: 'Outfit', sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.exp-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (max-width: 720px) {
   .cert-grid {
     grid-template-columns: 1fr 1fr;
@@ -800,5 +941,21 @@
 
   .cert-modal-title {
     font-size: 18px;
+  }
+
+  .exp-modal-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .exp-modal-visual {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    height: 140px;
+    flex-shrink: 0;
+  }
+
+  .exp-modal-initial {
+    font-size: 64px;
   }
 }
