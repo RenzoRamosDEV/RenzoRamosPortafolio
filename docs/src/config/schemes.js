@@ -1,3 +1,18 @@
+/**
+ * Configuración de esquemas de color (theme tokens).
+ *
+ * Cada esquema define un par de acentos `a` (primario) y `b` (secundario)
+ * que se usan en gradientes, hovers, badges y elementos destacados.
+ *
+ * `aRgb` / `bRgb` se mantienen aparte porque varios estilos inyectan los
+ * componentes RGB en `rgba(...)` para controlar la opacidad — formato HEX
+ * no permite alpha dinámico sin parsing.
+ *
+ * @typedef {import('../domain/types.js').Scheme}   Scheme
+ * @typedef {import('../domain/types.js').SchemeId} SchemeId
+ */
+
+/** @type {Record<SchemeId, Scheme>} */
 export const SCHEMES = {
   'purple-pink': {
     a: '#7b2ff7',
@@ -25,6 +40,10 @@ export const SCHEMES = {
   }
 };
 
+/**
+ * Valores por defecto del estado de "tweaks" (preferencias visuales).
+ * Sirve como semilla del hook `useTweaks`.
+ */
 export const TWEAK_DEFAULTS = {
   accentScheme: 'emerald-teal'
 };

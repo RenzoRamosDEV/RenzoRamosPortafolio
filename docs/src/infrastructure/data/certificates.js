@@ -1,5 +1,13 @@
-import { getPublicPath } from '../utils/paths.js';
+import { getPublicPath } from '../paths.js';
 
+/**
+ * Items de certificados.
+ *
+ * `credential` puede ser `null` cuando no hay URL pública de verificación;
+ * la UI omite el botón "Ver credencial" en ese caso.
+ *
+ * @type {import('../../domain/types.js').TrajectoryItem[]}
+ */
 export const certificateItems = [
   {
     title: "Certificado Spring Boot Esencial",

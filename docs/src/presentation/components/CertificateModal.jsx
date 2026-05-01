@@ -1,6 +1,23 @@
 import { useEffect } from 'react';
-import { SCHEMES } from '../constants/schemes';
 
+import { SCHEMES } from '../../config/schemes';
+
+/**
+ * Modal de detalle de un certificado.
+ *
+ * Layout en dos columnas (preview + metadata) con CTAs opcionales:
+ *  - "Ver PDF": si `data.pdf` existe.
+ *  - "Ver credencial": si `data.credential` existe (no se muestra si es null).
+ *
+ * Cierre con Escape o click en el backdrop.
+ *
+ * @param {Object} props
+ * @param {?import('../../domain/types.js').TrajectoryItem} props.data    - Certificado o null cuando no hay selección.
+ * @param {import('../../domain/types.js').SchemeId}         props.scheme  - Esquema activo.
+ * @param {boolean}                                          props.isOpen  - Visible si true.
+ * @param {() => void}                                       props.onClose - Callback de cierre.
+ * @returns {JSX.Element|null}
+ */
 export function CertificateModal({ data, scheme, isOpen, onClose }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
 
@@ -21,7 +38,6 @@ export function CertificateModal({ data, scheme, isOpen, onClose }) {
   return (
     <div className="cert-modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="cert-modal">
-
         <button className="cert-modal-close" onClick={onClose}>✕</button>
 
         <div className="cert-modal-body">
@@ -64,7 +80,6 @@ export function CertificateModal({ data, scheme, isOpen, onClose }) {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

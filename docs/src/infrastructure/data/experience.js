@@ -1,5 +1,10 @@
-import { getPublicPath } from '../utils/paths.js';
+import { getPublicPath } from '../paths.js';
 
+/**
+ * Items de experiencia profesional.
+ *
+ * @type {import('../../domain/types.js').TrajectoryItem[]}
+ */
 export const experienceItems = [
   {
     title: "Desarrollador Fullstack",

@@ -1,9 +1,23 @@
-import { SCHEMES } from '../constants/schemes';
+import { SCHEMES } from '../../config/schemes';
 
+/**
+ * Sección de introducción (hero) del portafolio.
+ *
+ * Muestra el nombre con gradiente, una pill descriptiva, el bio y los
+ * CTAs externos (GitHub / LinkedIn). El indicador inferior dispara
+ * scroll a la sección de proyectos vía el callback `onScrollTo`.
+ *
+ * Los blobs de fondo se pintan en runtime con `style` para que reaccionen
+ * al scheme activo sin necesidad de variables CSS adicionales.
+ *
+ * @param {Object}   props
+ * @param {import('../../domain/types.js').SchemeId} props.scheme     - Esquema activo.
+ * @param {(id: string) => void}                     props.onScrollTo - Scroll a sección por id.
+ * @returns {JSX.Element}
+ */
 export function Hero({ scheme, onScrollTo }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
   const gradText = `linear-gradient(135deg, ${s.a} 0%, ${s.b} 100%)`;
-  const gradBtn = `linear-gradient(135deg, ${s.a}, ${s.b})`;
 
   return (
     <section className="hero" id="hero">
@@ -26,12 +40,15 @@ export function Hero({ scheme, onScrollTo }) {
 
       <div className="hero-pill fade-up fade-up-2">
         <div className="hero-pill-dot" style={{ background: s.a }} />
-        <span className="hero-pill-text" style={{
-          backgroundImage: gradText,
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
+        <span
+          className="hero-pill-text"
+          style={{
+            backgroundImage: gradText,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}
+        >
           Desarrollador de Aplicaciones Multiplataforma
         </span>
       </div>
@@ -69,10 +86,9 @@ export function Hero({ scheme, onScrollTo }) {
         aria-label="Scroll down"
       >
         <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
-          <path d="M10 3v14M4 11l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M10 3v14M4 11l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
-
     </section>
   );
 }

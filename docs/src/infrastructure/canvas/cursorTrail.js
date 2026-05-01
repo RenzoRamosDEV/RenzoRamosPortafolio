@@ -1,3 +1,14 @@
+/**
+ * Estela de partículas tipo "estrella" que sigue al cursor.
+ *
+ * Diseñado como efecto puro de UI: no expone API ni hooks, sólo se
+ * adjunta a un canvas y arranca su propio loop con requestAnimationFrame.
+ *
+ * Limita el pool de partículas a 180 para evitar caídas de FPS en
+ * sesiones largas con mucho movimiento del mouse.
+ *
+ * @param {HTMLCanvasElement} canvas - Canvas a tamaño viewport donde dibujar.
+ */
 export function initCursorTrail(canvas) {
   const ctx = canvas.getContext('2d');
   let particles = [];
@@ -29,23 +40,24 @@ export function initCursorTrail(canvas) {
       });
     }
 
+    // Cap del pool: descarta las más antiguas si crecemos sobre 180.
     if (particles.length > 180) particles.splice(0, particles.length - 180);
   });
 
+  /** Dibuja una estrella tipo "cruz" con núcleo brillante. */
   function drawStar(x, y, size, alpha) {
-    // Cruz de 4 puntas pequeña
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.fillStyle = '#ffffff';
     ctx.shadowColor = 'rgba(200,180,255,0.8)';
     ctx.shadowBlur = size * 3;
 
-    // Centro brillante
+    // Núcleo
     ctx.beginPath();
     ctx.arc(x, y, size * 0.6, 0, Math.PI * 2);
     ctx.fill();
 
-    // Destellos en cruz
+    // Destellos en cruz (horizontal + vertical)
     ctx.fillRect(x - size * 2.5, y - size * 0.2, size * 5, size * 0.4);
     ctx.fillRect(x - size * 0.2, y - size * 2.5, size * 0.4, size * 5);
 
@@ -59,6 +71,7 @@ export function initCursorTrail(canvas) {
       const p = particles[i];
       drawStar(p.x, p.y, p.size, p.alpha);
 
+      // Integración + amortiguamiento + fade
       p.x += p.vx;
       p.y += p.vy;
       p.vx *= 0.96;

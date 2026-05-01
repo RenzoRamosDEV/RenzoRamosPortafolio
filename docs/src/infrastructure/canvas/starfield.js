@@ -1,3 +1,14 @@
+/**
+ * Fondo animado de estrellas + estrellas fugaces ocasionales.
+ *
+ * - 260 estrellas fijas que titilan (modulación senoidal del alpha).
+ * - Spawn aleatorio de estrellas fugaces con estela de 80 puntos.
+ *
+ * Auto-redimensiona en `resize` y reinicia las estrellas para que la
+ * densidad se mantenga estable al rotar dispositivo.
+ *
+ * @param {HTMLCanvasElement} canvas - Canvas a tamaño viewport.
+ */
 export function initStarfield(canvas) {
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -39,7 +50,7 @@ export function initStarfield(canvas) {
   function draw(t) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Dibujar estrellas fijas
+    // Estrellas fijas con titileo
     for (const s of stars) {
       const alpha = s.a * (0.5 + 0.5 * Math.sin(t * s.speed * 100 + s.offset));
       ctx.beginPath();
@@ -48,16 +59,16 @@ export function initStarfield(canvas) {
       ctx.fill();
     }
 
-    // Crear nuevas estrellas fugaces ocasionalmente
+    // Spawn ocasional de estrella fugaz (~1% por frame)
     if (Math.random() < 0.01) {
       createShootingStar();
     }
 
-    // Dibujar estrellas fugaces
+    // Render + integración de estrellas fugaces
     for (let i = shootingStars.length - 1; i >= 0; i--) {
       const ss = shootingStars[i];
 
-      // Agregar punto actual al trail
+      // Acumula puntos para la estela (cap a 80)
       ss.trail.push({ x: ss.x, y: ss.y, age: 0 });
       if (ss.trail.length > 80) ss.trail.shift();
 
@@ -70,7 +81,7 @@ export function initStarfield(canvas) {
         continue;
       }
 
-      // Dibujar la estela
+      // Estela
       for (let j = 0; j < ss.trail.length; j++) {
         const point = ss.trail[j];
         point.age += 1;
@@ -82,7 +93,7 @@ export function initStarfield(canvas) {
         ctx.fill();
       }
 
-      // Dibujar la estrella principal
+      // Cabeza brillante
       const headAlpha = ss.life * 0.95;
       ctx.beginPath();
       ctx.arc(ss.x, ss.y, 2.5, 0, Math.PI * 2);

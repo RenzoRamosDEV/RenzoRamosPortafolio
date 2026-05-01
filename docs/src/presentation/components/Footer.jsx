@@ -1,3 +1,10 @@
+/**
+ * Pie de página del portafolio.
+ *
+ * Componente puramente presentacional sin props ni estado.
+ *
+ * @returns {JSX.Element}
+ */
 export function Footer() {
   return (
     <footer className="footer">

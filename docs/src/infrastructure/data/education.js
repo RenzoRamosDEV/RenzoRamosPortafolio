@@ -1,5 +1,10 @@
-import { getPublicPath } from '../utils/paths.js';
+import { getPublicPath } from '../paths.js';
 
+/**
+ * Items de formación académica.
+ *
+ * @type {import('../../domain/types.js').TrajectoryItem[]}
+ */
 export const educationItems = [
   {
     title: "Formación Profesional de Grado Superior",

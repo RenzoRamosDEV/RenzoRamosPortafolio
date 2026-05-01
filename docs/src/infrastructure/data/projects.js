@@ -1,5 +1,14 @@
-import { getPublicPath } from '../utils/paths.js';
+import { getPublicPath } from '../paths.js';
 
+/**
+ * Catálogo de proyectos destacados.
+ *
+ * `images` se renderiza como carrusel en `ProjectCard` y `ProjectModal`.
+ * `demo` admite `'#'` cuando aún no hay despliegue público (la UI oculta
+ * el botón "Ver Demo" en ese caso).
+ *
+ * @type {import('../../domain/types.js').Project[]}
+ */
 export const PROJECTS = [
   {
     num: '01',

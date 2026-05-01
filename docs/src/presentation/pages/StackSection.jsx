@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { SCHEMES } from '../constants/schemes';
-import { STACK } from '../data/stack';
-import { METHODOLOGIES } from '../data/methodologies';
 
-const BACK  = STACK.filter(i => i.cat === 'back');
-const FRONT = STACK.filter(i => i.cat === 'front');
-const IA    = STACK.filter(i => i.cat === 'ia');
-const TOOLS = STACK.filter(i => i.cat === 'stack-tools');
+import { SCHEMES } from '../../config/schemes';
+import { STACK } from '../../infrastructure/data/stack';
+import { METHODOLOGIES } from '../../infrastructure/data/methodologies';
+
+// Pre-particionado de los catálogos por categoría. Se hace fuera del
+// componente porque las listas son estáticas: evitamos recomputar en
+// cada render.
+const BACK    = STACK.filter(i => i.cat === 'back');
+const FRONT   = STACK.filter(i => i.cat === 'front');
+const IA      = STACK.filter(i => i.cat === 'ia');
+const TOOLS   = STACK.filter(i => i.cat === 'stack-tools');
 const IDES_SO = STACK.filter(i => i.cat === 'ides-so');
 
 const METHOD_ARCH    = METHODOLOGIES.filter(i => i.cat === 'arch');
@@ -15,6 +19,15 @@ const METHOD_TESTING = METHODOLOGIES.filter(i => i.cat === 'testing');
 const METHOD_PROCESS = METHODOLOGIES.filter(i => i.cat === 'process');
 const METHOD_UI      = METHODOLOGIES.filter(i => i.cat === 'ui');
 
+/**
+ * Chip individual de tecnología (icono + nombre).
+ *
+ * @param {Object} props
+ * @param {import('../../domain/types.js').StackItem} props.item     - Tecnología a mostrar.
+ * @param {boolean}                                   props.selected - Si está activo.
+ * @param {string}                                    props.accent   - Color HEX de borde activo.
+ * @param {() => void}                                props.onClick  - Toggle de selección.
+ */
 function Chip({ item, selected, accent, onClick }) {
   return (
     <div
@@ -29,6 +42,14 @@ function Chip({ item, selected, accent, onClick }) {
   );
 }
 
+/**
+ * Chip de metodología (badge de iniciales + nombre).
+ *
+ * @param {Object} props
+ * @param {import('../../domain/types.js').MethodologyItem} props.item     - Metodología a mostrar.
+ * @param {boolean}                                         props.selected - Si está activa.
+ * @param {() => void}                                      props.onClick  - Toggle de selección.
+ */
 function MethodChip({ item, selected, onClick }) {
   return (
     <div
@@ -48,6 +69,15 @@ function MethodChip({ item, selected, onClick }) {
   );
 }
 
+/**
+ * Card de detalle que aparece junto a los chips cuando hay uno seleccionado.
+ * Sirve tanto para tecnologías (usa `icon`) como para metodologías (usa `label`).
+ *
+ * @param {Object} props
+ * @param {import('../../domain/types.js').StackItem | import('../../domain/types.js').MethodologyItem} props.item
+ * @param {string}      props.accent  - Color HEX de acento.
+ * @param {() => void}  props.onClose - Cierra la card.
+ */
 function DetailCard({ item, accent, onClose }) {
   const isMethod = !item.icon;
   return (
@@ -71,16 +101,26 @@ function DetailCard({ item, accent, onClose }) {
   );
 }
 
+/**
+ * Sección "Stack Tecnológico" + "Forma de trabajar".
+ *
+ * Mantiene dos selecciones independientes (tecnología y metodología) para
+ * que el usuario pueda explorar ambos catálogos sin perder contexto.
+ *
+ * @param {Object} props
+ * @param {import('../../domain/types.js').SchemeId} props.scheme - Esquema activo.
+ * @returns {JSX.Element}
+ */
 export function StackSection({ scheme }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
   const [selected, setSelected]   = useState(null);
   const [selectedM, setSelectedM] = useState(null);
 
   const stackGroups = [
-    { label: 'Backend',   items: BACK,  color: s.a },
-    { label: 'Tools',     items: TOOLS, color: `${s.a}99` },
-    { label: 'Frontend',  items: FRONT, color: `${s.b}99` },
-    { label: 'IA',        items: IA,    color: s.b },
+    { label: 'Backend',   items: BACK,    color: s.a },
+    { label: 'Tools',     items: TOOLS,   color: `${s.a}99` },
+    { label: 'Frontend',  items: FRONT,   color: `${s.b}99` },
+    { label: 'IA',        items: IA,      color: s.b },
     { label: 'IDEs & SO', items: IDES_SO, color: s.a },
   ];
 
@@ -92,6 +132,7 @@ export function StackSection({ scheme }) {
     { label: 'UI',           items: METHOD_UI,      color: `${s.a}99` },
   ];
 
+  // Toggle: si se vuelve a clickear la misma, deselecciona.
   const handleChip   = (item) => setSelected(prev  => prev?.name === item.name ? null : item);
   const handleMethod = (item) => setSelectedM(prev => prev?.name === item.name ? null : item);
 
