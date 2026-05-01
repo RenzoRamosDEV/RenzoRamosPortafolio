@@ -2,7 +2,7 @@ import { getPublicPath } from '../utils/paths.js';
 
 export const certificateItems = [
   {
-    title: "Certificado Spring Boot",
+    title: "Certificado Spring Boot Esencial",
     company: "LinkedIn Learning",
     period: "may. 2026",
     location: "Online",
