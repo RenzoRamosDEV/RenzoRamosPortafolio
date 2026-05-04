@@ -220,18 +220,17 @@ export function Experience() {
     <section id="experiencia" className="min-h-screen p-[16px] bg-black">
       <div
         id="experiencia-card"
-        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col overflow-hidden"
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
         style={{
           background: '#1a1d22',
           backgroundImage:
             'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
-          height: 'calc(100vh - 32px)',
         }}
       >
 
         <div
-          className="relative z-10 flex-1 flex flex-col overflow-y-auto"
+          className="relative z-10 flex-1 flex flex-col md:overflow-y-auto"
           style={{
             padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
             gap: 'clamp(28px,4vw,44px)',
