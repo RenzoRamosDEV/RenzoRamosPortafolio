@@ -55,6 +55,10 @@ export function Stack() {
           minHeight: 'calc(100vh - 32px)',
         }}
       >
+        <div
+          className="absolute inset-0 z-[3] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
+        />
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 lg:gap-4 py-10 lg:py-10 pb-20">
 
