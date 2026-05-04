@@ -102,7 +102,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                   </span>
                   <div>
                     <span className="text-[#A7B4BC]/85 text-[13px] font-semibold">{p.title}. </span>
-                    <span className="text-[#A7B4BC]/50 text-[13px] leading-relaxed">{p.body}</span>
+                    <span className="hidden sm:inline text-[#A7B4BC]/50 text-[13px] leading-relaxed">{p.body}</span>
                   </div>
                 </div>
               ))}
@@ -110,7 +110,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           )}
 
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-white/[0.06]">
-            <div className="flex flex-wrap gap-1.5">
+            <div className="hidden sm:flex flex-wrap gap-1.5">
               {project.badges.map(t => (
                 <span
                   key={t}

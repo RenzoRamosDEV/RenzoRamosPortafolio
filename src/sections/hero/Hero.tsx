@@ -45,12 +45,10 @@ export function Hero() {
             </div>
 
             {/* Buttons */}
-            <div className="md:hidden grid grid-cols-2 gap-2">
+            <div className="md:hidden flex flex-wrap items-center justify-center gap-2">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
               <PillButton label="LinkedIn" href="https://www.linkedin.com/in/renzoinv04/" external />
-              <div className="col-span-2 flex justify-center">
-                <PillButton label="Curriculum" disabled />
-              </div>
+              <PillButton label="Curriculum" disabled />
             </div>
             <div className="hidden md:flex flex-wrap items-center justify-center gap-3">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
