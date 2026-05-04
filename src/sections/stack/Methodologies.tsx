@@ -55,7 +55,7 @@ export function Methodologies() {
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
         />
 
-        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 lg:gap-4 py-10 lg:py-10 pb-20">
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 py-8 justify-center">
 
           <SectionTitle text="Metodologías que aplico" align="left" leading="snug" />
 
@@ -76,7 +76,7 @@ export function Methodologies() {
           </div>
 
           {/* Mobile: chips + detail card inline */}
-          <div className="flex lg:hidden flex-col">
+          <div className="flex lg:hidden flex-col max-w-lg mx-auto w-full">
             {methodRows.map((row, ri) => (
               <div key={row.key} className="flex flex-col border-b border-white/5 first:border-t first:border-white/5">
                 <div className="flex flex-col gap-2 py-3">

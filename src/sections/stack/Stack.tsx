@@ -60,7 +60,7 @@ export function Stack() {
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
         />
 
-        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 lg:justify-center">
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 justify-center">
 
           <SectionTitle text="Herramientas en mi Stack" align="left" leading="snug" />
 
@@ -81,7 +81,7 @@ export function Stack() {
           </div>
 
           {/* Mobile: chips + detail card inline */}
-          <div className="flex lg:hidden flex-col">
+          <div className="flex lg:hidden flex-col max-w-lg mx-auto w-full">
             {stackRows.map((row, ri) => (
               <div key={row.key} className="flex flex-col border-b border-white/5 first:border-t first:border-white/5">
                 <div className="flex flex-col gap-2 py-3">
